@@ -1,0 +1,24 @@
+# LEGACY: do not deploy. The production blueprint is ../render.yaml.
+# Render blueprint: New + > Blueprint, point it at this repo.
+services:
+  - type: web
+    name: brandguard
+    runtime: docker
+    plan: starter            # a persistent disk needs a paid plan; on free, finished reviews reset on redeploy
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: brandguard-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: APP_ACCESS_CODE
+        sync: false
+      - key: DEMO_MODE
+        value: "false"
+      - key: RETENTION_DAYS
+        value: "30"

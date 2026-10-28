@@ -1,0 +1,14 @@
+# LEGACY: do not deploy. The production compose file is ../docker-compose.yml.
+services:
+  brandguard:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - brandguard-data:/data
+    restart: unless-stopped
+
+volumes:
+  brandguard-data:

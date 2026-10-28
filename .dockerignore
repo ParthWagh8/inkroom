@@ -1,0 +1,59 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Version control, CI, and docs are not needed in the image
+.git
+.gitignore
+.gitattributes
+.github
+README.md
+CONTRIBUTING.md
+SECURITY.md
+docs
+sample-files
+
+# Local scratch material
+Copy of Problem_statement.docx.pdf
+first_image.png
+second_image.png
+sample-files.zip
+
+# Frontend dependencies and build output
+**/node_modules
+frontend/dist
+frontend/test
+frontend/coverage
+
+# Python caches and local environments
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+**/.venv
+backend/.venv
+
+# Tests are run in CI, not shipped in the runtime image
+backend/inkroom_api/tests
+
+# Legacy prototype and its runtime/deployment files
+backend/app
+backend/tests
+backend/sample_data
+backend/static
+backend/data
+data
+backend/requirements.txt
+backend/requirements-dev.txt
+backend/requirements-api-dev.txt
+backend/Dockerfile
+backend/render.yaml
+backend/docker-compose.yml
+backend/.dockerignore
+backend/.gitignore

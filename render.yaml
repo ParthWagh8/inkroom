@@ -1,0 +1,22 @@
+# Render Blueprint. In the dashboard: New + -> Blueprint, select this repository.
+# Full instructions: docs/DEPLOYMENT.md
+services:
+  - type: web
+    name: inkroom
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DEMO_MODE
+        value: "false"
+      # Render terminates TLS and is the only route to the container, so trust its
+      # forwarded client address. Per-IP rate limits stay useful.
+      - key: FORWARDED_ALLOW_IPS
+        value: "*"

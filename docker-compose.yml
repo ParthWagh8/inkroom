@@ -1,0 +1,27 @@
+services:
+  inkroom:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: inkroom:local
+    init: true
+    ports:
+      # Bound to loopback by default: put a TLS reverse proxy in front, or set
+      # BIND_ADDRESS=0.0.0.0 in .env to expose it directly.
+      - "${BIND_ADDRESS:-127.0.0.1}:${APP_PORT:-8000}:8000"
+    env_file:
+      - .env
+    environment:
+      PORT: "8000"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    stop_grace_period: 30s
+    restart: unless-stopped

@@ -1,0 +1,18 @@
+{
+  "product": "Northstar Brew",
+  "capacity_cups": 10,
+  "brew_time_minutes_full_carafe": 5,
+  "keep_warm_hours": 2,
+  "price_usd": 179,
+  "warranty_years": 1,
+  "availability": {
+    "countries": 25,
+    "from": "2026-07-15"
+  },
+  "shipping": {
+    "free_over_usd": 50,
+    "otherwise_usd": 8
+  },
+  "subscription_required": false,
+  "returns_days": 30
+}

@@ -1,0 +1,28 @@
+# Normalise text files to LF in the repository and in working trees.
+* text=auto eol=lf
+
+# Images and documents are binary; never diff or merge them as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.pdf binary
+*.zip binary
+*.docx binary
+*.xlsx binary
+
+# Windows scripts should keep CRLF so they run in PowerShell/cmd.
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Shell scripts must stay LF.
+*.sh text eol=lf
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
