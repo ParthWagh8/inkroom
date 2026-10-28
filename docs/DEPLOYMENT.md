@@ -92,9 +92,9 @@ git ls-files | grep -E '(^|/)\.env$'    # must print nothing
    not in the repository.
 6. Apply the Blueprint.
 
-The blueprint uses the `starter` plan, which avoids free-tier cold starts. If you deliberately want the free plan,
-change `plan: starter` to `plan: free` in `render.yaml` (or choose it in the dashboard). A cold start can add tens of
-seconds before a review begins.
+The blueprint uses the `free` plan, so the service sleeps when idle and can take time to wake before a review.
+If you want an always-on service without cold starts, change `plan: free` to `plan: starter` in `render.yaml` (or
+choose it in the dashboard).
 
 ### 3. Verify
 

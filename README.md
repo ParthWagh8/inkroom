@@ -21,7 +21,8 @@ package.
 The production path is the root `Dockerfile`: one container serves the API and the built React app on one origin.
 
 - **Render (recommended).** Push the repository, create a Blueprint from `render.yaml`, and enter the two provider
-  keys as secrets. Render provides TLS, the health check, and the public URL. See
+  keys as secrets. Render provides TLS, the health check, and the public URL. The blueprint uses the free plan by
+  default, so the service sleeps when idle. See
   [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md#option-a--render-blueprint-recommended).
 - **Docker Compose on a VPS.** Copy `.env.example` to `.env`, add the keys, then run `docker compose up -d --build`.
   The app binds to `127.0.0.1:8000` by default; put Caddy or Nginx in front for HTTPS. See

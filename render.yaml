@@ -4,7 +4,9 @@ services:
   - type: web
     name: inkroom
     runtime: docker
-    plan: starter
+    # Free plan: no hourly charge, but the service sleeps when idle and has a cold start.
+    # Change to "starter" for an always-on service without cold starts.
+    plan: free
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /api/health
