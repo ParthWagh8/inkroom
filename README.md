@@ -1,5 +1,7 @@
 # Inkroom
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ParthWagh8/inkroom)
+
 Inkroom checks content against approved facts and brand guidelines **before it is published**, with a person in
 control at every important step. React + Vite on the front, FastAPI on the back, and **the operator owns the AI
 provider keys**. Users only upload files.
